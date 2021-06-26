@@ -995,6 +995,8 @@ function reSign(value, bits, ignore) {
 }
 assert(Math["imul"] && Math["fround"] && Math["clz32"] && Math["trunc"], "this is a legacy browser, build with LEGACY_VM_SUPPORT");
 var Math_abs = Math.abs;
+var Math_cos = Math.cos;
+var Math_sin = Math.sin;
 var Math_sqrt = Math.sqrt;
 var Math_ceil = Math.ceil;
 var Math_floor = Math.floor;
@@ -1307,7 +1309,7 @@ function _emscripten_asm_const_ii(code, a0) {
  return ASM_CONSTS[code](a0);
 }
 STATIC_BASE = GLOBAL_BASE;
-STATICTOP = STATIC_BASE + 4101744;
+STATICTOP = STATIC_BASE + 4106640;
 __ATINIT__.push({
  func: (function() {
   __GLOBAL__sub_I_AccessibilityScriptingClasses_cpp();
@@ -3237,7 +3239,7 @@ __ATINIT__.push({
   ___emscripten_environ_constructor();
  })
 });
-var STATIC_BUMP = 4101744;
+var STATIC_BUMP = 4106640;
 Module["STATIC_BASE"] = STATIC_BASE;
 Module["STATIC_BUMP"] = STATIC_BUMP;
 var tempDoublePtr = STATICTOP;
@@ -13857,6 +13859,7 @@ var _llvm_ceil_f64 = Math_ceil;
 function _llvm_copysign_f64(x, y) {
  return y < 0 || y === 0 && 1 / y < 0 ? -Math_abs(x) : Math_abs(x);
 }
+var _llvm_cos_f32 = Math_cos;
 function _llvm_cttz_i32(x) {
  x = x | 0;
  return (x ? 31 - (Math_clz32(x ^ x - 1) | 0) | 0 : 32) | 0;
@@ -13878,6 +13881,7 @@ function _llvm_log2_f32(x) {
  return Math.log(x) / Math.LN2;
 }
 var _llvm_pow_f64 = Math_pow;
+var _llvm_sin_f32 = Math_sin;
 var _llvm_sqrt_f32 = Math_sqrt;
 function _llvm_trap() {
  abort("trap!");
@@ -16288,8 +16292,8 @@ function nullFunc_vjji(x) {
  err("Build with ASSERTIONS=2 for more info.");
  abort(x);
 }
-Module["wasmTableSize"] = 108459;
-Module["wasmMaxTableSize"] = 108459;
+Module["wasmTableSize"] = 108463;
+Module["wasmMaxTableSize"] = 108463;
 function invoke_dd(index, a1) {
  var sp = stackSave();
  try {
@@ -20690,6 +20694,7 @@ Module.asmLibraryArg = {
  "_llvm_ceil_f32": _llvm_ceil_f32,
  "_llvm_ceil_f64": _llvm_ceil_f64,
  "_llvm_copysign_f64": _llvm_copysign_f64,
+ "_llvm_cos_f32": _llvm_cos_f32,
  "_llvm_cttz_i32": _llvm_cttz_i32,
  "_llvm_eh_typeid_for": _llvm_eh_typeid_for,
  "_llvm_exp2_f32": _llvm_exp2_f32,
@@ -20700,6 +20705,7 @@ Module.asmLibraryArg = {
  "_llvm_log10_f32": _llvm_log10_f32,
  "_llvm_log2_f32": _llvm_log2_f32,
  "_llvm_pow_f64": _llvm_pow_f64,
+ "_llvm_sin_f32": _llvm_sin_f32,
  "_llvm_sqrt_f32": _llvm_sqrt_f32,
  "_llvm_trap": _llvm_trap,
  "_llvm_trunc_f32": _llvm_trunc_f32,
